@@ -55,7 +55,7 @@ In order to find `d`, we need to find `p` & `q`. To find `p` & `q` we need to fa
 p = 103419850061766398711688540905436955187
 q = 140867236490209335558539611454420246899759
 ```
-Now we can find `d` after computing the least common multiple (lcm) of the product of`p-1` and `q-1` ([Carmichael's totient function](https://en.wikipedia.org/wiki/Carmichael_function). I found [https://www.dcode.fr/lcm](https://www.dcode.fr/lcm) to be helpful here. IIRC this calculation crushed my computer, which has the computing power of a doorstop. Oh well, you gotta use what you have.
+Now we can find `d` after computing the least common multiple (lcm) of the product of`p-1` and `q-1` ([Carmichael's totient function](https://en.wikipedia.org/wiki/Carmichael_function)). I found [https://www.dcode.fr/lcm](https://www.dcode.fr/lcm) to be helpful here. IIRC this calculation crushed my computer, which has the computing power of a doorstop. Oh well, you gotta use what you have.
 
 `λ(n)=lcm(p-1,q-1) = 7284234238216418923265911879098470861191745960804303625137027373553619840122494`
 
