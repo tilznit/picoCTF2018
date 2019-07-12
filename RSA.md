@@ -2,11 +2,11 @@
 
 Here are my walkthroughs of three RSA problems from [picoctf2018](https://picoctf.com/).
 
-First, you should try to understand the [RSA cryptosystem](https://en.wikipedia.org/wiki/RSA_(cryptosystem)). You'll basically be using online tools to solve for the unknown parts of the RSA equation, or other equations that lead to the unknown parts of the RSA equation, and use that info to get the flag. 
+First, you should try to understand the [RSA cryptosystem](https://en.wikipedia.org/wiki/RSA_(cryptosystem)). You'll basically be using online tools to solve for the unknown parts of the RSA equation, or other equations that lead to the unknown parts of the RSA equation, and use that info to get the flag. These problems highlight what happens to RSA when it isn't properly implemented.
 
 ## Safe RSA
 
-We are given n, e, and c
+We are given n, e, and c.
 
 ```python
 n = 374159235470172130988938196520880526947952521620932362050308663243595788308583992120881359365258949723819911758198013202644666489247987314025169670926273213367237020188587742716017314320191350666762541039238241984934473188656610615918474673963331992408750047451253205158436452814354564283003696666945950908549197175404580533132142111356931324330631843602412540295482841975783884766801266552337129105407869020730226041538750535628619717708838029286366761470986056335230171148734027536820544543251801093230809186222940806718221638845816521738601843083746103374974120575519418797642878012234163709518203946599836959811
@@ -25,15 +25,16 @@ I tried calculating the cubed root of `c` in python, but I ran into the [floatin
 
 The calculator gave the following value: `13016382529449106065839070830454998857466392684017754632233906857023684751222397`
 
-I was stuck here for a while. A hint on the picoctf forums on Piazza mentioned to convert it to hex. I tried
+I was stuck here for a while. A hint on the picoctf forums mentioned to convert it to hex. I tried
 
 ```python
->>> a = hex(13016382529449106065839070830454998857466392684017754632233906857023684751222397)
+m = hex(13016382529449106065839070830454998857466392684017754632233906857023684751222397)
+# m = hex encoded plaintext
 
->>> a
+>>> m
 '0x7069636f4354467b655f7734795f7430305f736d3431315f38316236353539667dL'
 ```
-Note the trailing `L` in the returned hex value. Prior to python3 this denotes the value as a [long integer literal](https://stackoverflow.com/questions/11764713/why-do-integers-in-database-row-tuple-have-an-l-suffix). I then went to [cyberchef](https://gchq.github.io/CyberChef/), entered the value minus the trailing L (again, for `type(a)=long` in python) in the input pane. I chose from hex with a delimiter of `0x` and was given the flag:
+Note the trailing `L` in the returned hex value. Prior to python3 this denotes the value as a [long integer literal](https://stackoverflow.com/questions/11764713/why-do-integers-in-database-row-tuple-have-an-l-suffix). I then went to [cyberchef](https://gchq.github.io/CyberChef/), entered the value minus the trailing L (again, for `type(m)=long` in python) in the input pane. I chose from hex with a delimiter of `0x` and was given the flag:
 
 `picoCTF{e_w4y_t00_sm411_81b6559f}`
 
