@@ -24,7 +24,7 @@ The problem here is that `type(c)=long`, and we encounter the [floating point er
 
 The calculator gave the following value: `13016382529449106065839070830454998857466392684017754632233906857023684751222397`
 
-I was stuck here for a while. A hint in the ctf forums on Piazza mentioned to convert it to hex. I tried
+I was stuck here for a while. A hint on the picoctf forums on Piazza mentioned to convert it to hex. I tried
 
 ```python
 a = hex(13016382529449106065839070830454998857466392684017754632233906857023684751222397)
