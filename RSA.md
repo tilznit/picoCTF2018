@@ -18,7 +18,7 @@ c = 2205316413931134031046440767620541984801091216351222789180582564557328762455
 # c = the ciphertext
 ```
 
-Googling for `RSA e=3` we can see that this is bad because if the plaintext message is smaller than 3^√N (cubed root of N) then a simple computation of 3^√C will recover the original message.
+Googling for `RSA e=3` we can see that this is bad because if the plaintext message is smaller than 3^√N (cubed root of N) then a simple computation of 3^√c will recover the original message.
 
 The problem here is that `type(c)=long`, and we encounter the [floating point error problem](https://en.wikipedia.org/wiki/Floating_point_error_mitigation) which reduces the accuracy of our calculation. I found a cubed root calculator that handles long types online at [https://www.dcode.fr/cube-root](https://www.dcode.fr/cube-root).
 
