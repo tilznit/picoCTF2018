@@ -1,6 +1,6 @@
 # RSA problem solves for picoctf2018
 
-Here are my walkthroughs of three RSA problems from picoctf2018.
+Here are my walkthroughs of three RSA problems from [picoctf2018](https://picoctf.com/).
 
 First, you need to understand the [RSA cryptosystem](https://en.wikipedia.org/wiki/RSA_(cryptosystem)). Pay particular attention to the key generation section and the equations. You'll basically be using online tools to solve for the unknown parts of the equation, and use that info to decode the flag. 
 
