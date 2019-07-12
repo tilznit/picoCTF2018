@@ -22,14 +22,21 @@ Googling for `RSA e=3` we can see that this is bad because if the plaintext mess
 
 The problem here is that `type(c)=long`, and we encounter the [floating point error problem](https://en.wikipedia.org/wiki/Floating_point_error_mitigation) which reduces the accuracy of our calculation. I found a cubed root calculator that handles long types online at [https://www.dcode.fr/cube-root](https://www.dcode.fr/cube-root).
 
+The calculator gave the following value: `13016382529449106065839070830454998857466392684017754632233906857023684751222397`
 
+I was stuck here for a while. A hint in the ctf forums on Piazza mentioned to convert it to hex. I tried
 
-From the hints in Pizza it was mentioned that you have to convert it to hex, then plaintext:
-hex(13016382529449106065839070830454998857466392684017754632233906857023684751222397)
+```python
+a = hex(13016382529449106065839070830454998857466392684017754632233906857023684751222397)
+
+>>>a
 '0x7069636f4354467b655f7734795f7430305f736d3431315f38316236353539667dL'
-picoCTF{e_w4y_t00_sm411_81b6559f}
+```
+I then went to [cyberchef](https://gchq.github.io/CyberChef/), entered the value, minus the trailing L (for type=long in python) in the input pane. I chose from hex with a delimiter of `0x`
 
-----------------------------------
+and was given the flag:
+
+`picoCTF{e_w4y_t00_sm411_81b6559f}`
 
 ## Supersafe RSA:
 
