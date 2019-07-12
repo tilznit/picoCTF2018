@@ -28,9 +28,9 @@ The calculator gave the following value: `13016382529449106065839070830454998857
 I was stuck here for a while. A hint on the picoctf forums on Piazza mentioned to convert it to hex. I tried
 
 ```python
->>>a = hex(13016382529449106065839070830454998857466392684017754632233906857023684751222397)
+>>> a = hex(13016382529449106065839070830454998857466392684017754632233906857023684751222397)
 
->>>a
+>>> a
 '0x7069636f4354467b655f7734795f7430305f736d3431315f38316236353539667dL'
 ```
 Note the trailing `L`. Prior to python3 this denotes the value as a [long integer literal](https://stackoverflow.com/questions/11764713/why-do-integers-in-database-row-tuple-have-an-l-suffix). I then went to [cyberchef](https://gchq.github.io/CyberChef/), entered the value minus the trailing L (again, for type=long in python) in the input pane. I chose from hex with a delimiter of `0x` and was given the flag:
