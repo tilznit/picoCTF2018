@@ -21,7 +21,7 @@ c = 2205316413931134031046440767620541984801091216351222789180582564557328762455
 
 Googling for `RSA e=3` we can see that this is bad because if the plaintext message is smaller than 3^√n (cubed root of n) then a simple computation of 3^√c will recover the original message (`e` is used in creating the public and private keys).
 
-I tried calculating the cubed root of `c` in python, but I ran into the [floating point error problem](https://en.wikipedia.org/wiki/Floating_point_error_mitigation) which reduces the accuracy of our cubed-root calculation. I found a cubed root calculator that handles large values as input online at [https://www.dcode.fr/cube-root](https://www.dcode.fr/cube-root).
+I tried calculating the cubed root of `c` in python, but I ran into the [floating point error problem](https://en.wikipedia.org/wiki/Floating_point_error_mitigation) which reduces the accuracy of our cubed-root calculation. I found a cubed root calculator that sufficiently handles large values online at [https://www.dcode.fr/cube-root](https://www.dcode.fr/cube-root).
 
 The calculator gave the following value: `13016382529449106065839070830454998857466392684017754632233906857023684751222397`
 
