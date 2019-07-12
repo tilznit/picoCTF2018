@@ -2,7 +2,7 @@
 
 Here are my walkthroughs of three RSA problems from [picoctf2018](https://picoctf.com/).
 
-First, you need to understand the [RSA cryptosystem](https://en.wikipedia.org/wiki/RSA_(cryptosystem)). Pay particular attention to the decryption section and the equations. You'll basically be using online tools to solve for the unknown parts of the RSA equation, or equations that lead to the unknown parts of the RSA equation, and use that info to decode the flag. 
+First, you should try to understand the [RSA cryptosystem](https://en.wikipedia.org/wiki/RSA_(cryptosystem)). You'll basically be using online tools to solve for the unknown parts of the RSA equation, or other equations that lead to the unknown parts of the RSA equation, and use that info to get the flag. 
 
 ## Safe RSA
 
@@ -19,7 +19,7 @@ c = 2205316413931134031046440767620541984801091216351222789180582564557328762455
 # n = pq
 ```
 
-Googling for `RSA e=3` we can see that this is bad because if the plaintext message is smaller than 3^√n (cubed root of n) then a simple computation of 3^√c will recover the original message.
+Googling for `RSA e=3` we can see that this is bad because if the plaintext message is smaller than 3^√n (cubed root of n) then a simple computation of 3^√c will recover the original message (`e` is used in creating the public and private keys).
 
 I tried calculating the cubed root of c in python, but I ran into the [floating point error problem](https://en.wikipedia.org/wiki/Floating_point_error_mitigation) which reduces the accuracy of our cubed-root calculation. I found a cubed root calculator that handles large values as input online at [https://www.dcode.fr/cube-root](https://www.dcode.fr/cube-root).
 
@@ -56,11 +56,13 @@ q = 140867236490209335558539611454420246899759
 ```
 Now we can find `d` after computing the least common multiple (lcm) of the product of`p-1` and `q-1` ([Carmichael's totient function](https://en.wikipedia.org/wiki/Carmichael_function). I found [https://www.dcode.fr/lcm](https://www.dcode.fr/lcm) to be helpful here. IIRC this calculation crushed my computer, which has the computing power of a doorstop. Oh well, you gotta use what you have.
 
-`lcm(p-1,q-1) = 7284234238216418923265911879098470861191745960804303625137027373553619840122494`
+`λ(n)=lcm(p-1,q-1) = 7284234238216418923265911879098470861191745960804303625137027373553619840122494`
 
-use modular inverse calc - https://www.dcode.fr/modular-inverse
+Next we should calculate the modular multiplicative inverse of `e(mod λ(n))` to get `d`. Another useful online tool helps here, use [https://www.dcode.fr/modular-inverse](https://www.dcode.fr/modular-inverse)
 
-d = 1/(65537 mod 7284234238216418923265911879098470861191745960804303625137027373553619840122494) = 3822119520023592992252745436904927231558688376033971543726629191475988816426329
+```python
+d = 1/(65537 * mod(7284234238216418923265911879098470861191745960804303625137027373553619840122494)) = 3822119520023592992252745436904927231558688376033971543726629191475988816426329
+```
 
 3. python ---> m = hex(pow(c, d, n)).rstrip("L")
 
