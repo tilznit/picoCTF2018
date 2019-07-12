@@ -33,7 +33,7 @@ I was stuck here for a while. A hint on the picoctf forums on Piazza mentioned t
 >>> a
 '0x7069636f4354467b655f7734795f7430305f736d3431315f38316236353539667dL'
 ```
-Note the trailing `L`. Prior to python3 this denotes the value as a [long integer literal](https://stackoverflow.com/questions/11764713/why-do-integers-in-database-row-tuple-have-an-l-suffix). I then went to [cyberchef](https://gchq.github.io/CyberChef/), entered the value minus the trailing L (again, for type=long in python) in the input pane. I chose from hex with a delimiter of `0x` and was given the flag:
+Note the trailing `L` in the returned hex value. Prior to python3 this denotes the value as a [long integer literal](https://stackoverflow.com/questions/11764713/why-do-integers-in-database-row-tuple-have-an-l-suffix). I then went to [cyberchef](https://gchq.github.io/CyberChef/), entered the value minus the trailing L (again, for `type(a)=long` in python) in the input pane. I chose from hex with a delimiter of `0x` and was given the flag:
 
 `picoCTF{e_w4y_t00_sm411_81b6559f}`
 
