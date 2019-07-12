@@ -34,7 +34,7 @@ m = hex(130163825294491060658390708304549988574663926840177546322339068570236847
 >>> m
 '0x7069636f4354467b655f7734795f7430305f736d3431315f38316236353539667dL'
 ```
-Note the trailing `L` in the returned hex value. Prior to python3 this denotes the value as a [long integer literal](https://stackoverflow.com/questions/11764713/why-do-integers-in-database-row-tuple-have-an-l-suffix). I then went to [cyberchef](https://gchq.github.io/CyberChef/), entered the value minus the trailing L (again, for `type(m)=long` in python) in the input pane. I chose from hex with a delimiter of `0x` and was given the flag:
+Note the trailing `L` in the returned hex value. Prior to python3 this denotes the value as a [long integer literal](https://stackoverflow.com/questions/11764713/why-do-integers-in-database-row-tuple-have-an-l-suffix). I then went to [cyberchef](https://gchq.github.io/CyberChef/), entered the value minus the trailing L (again, for `type(m)=long` in python) in the input pane. I chose the "from hex" operation with a delimiter of `0x` and was given the flag in the output pane:
 
 `picoCTF{e_w4y_t00_sm411_81b6559f}`
 
@@ -84,7 +84,7 @@ m = hex(pow(c, d, n)).rstrip("L")
 '0x7069636f4354467b7573335f6c40726733725f7072316d33245f313539397d'
 ```
 
-I again went to [cyberchef](https://gchq.github.io/CyberChef/), entered the value of `m` in the input pane. I chose from hex with a delimiter of `0x` and was given the flag:
+I again went to [cyberchef](https://gchq.github.io/CyberChef/), entered the value of `m` in the input pane. I chose the "from hex" operation with a delimiter of `0x` and was given the flag in the output pane:
 
 `picoCTF{us3_l@rg3r_pr1m3$_1599}`
 
