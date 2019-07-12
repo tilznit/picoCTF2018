@@ -2,7 +2,7 @@
 
 Here are my walkthroughs of three RSA problems from [picoctf2018](https://picoctf.com/).
 
-First, you should try to understand the [RSA cryptosystem](https://en.wikipedia.org/wiki/RSA_(cryptosystem)). You'll basically be using online tools to solve for the unknown parts of the RSA equation, or other equations that lead to the unknown parts of the RSA equation, and use that info to get the flag. These problems highlight what when RSA isn't properly implemented.
+First, you should try to understand the [RSA cryptosystem](https://en.wikipedia.org/wiki/RSA_(cryptosystem)). You'll basically be using online tools to solve for the unknown parts of the RSA equation, or other equations that lead to the unknown parts of the RSA equation, and use that info to get the flag. These problems highlight what when RSA isn't properly implemented. Unfortunately, I don't have the original questions for the problems.
 
 ## Safe RSA
 
