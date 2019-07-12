@@ -21,7 +21,7 @@ c = 2205316413931134031046440767620541984801091216351222789180582564557328762455
 
 Googling for `RSA e=3` we can see that this is bad because if the plaintext message is smaller than 3^√n (cubed root of n) then a simple computation of 3^√c will recover the original message.
 
-The problem here is that `type(c)=long`, and we encounter the [floating point error problem](https://en.wikipedia.org/wiki/Floating_point_error_mitigation) which reduces the accuracy of our cubed-root calculation. I found a cubed root calculator that handles long types online at [https://www.dcode.fr/cube-root](https://www.dcode.fr/cube-root).
+I tried calculating the cubed root of c in python, but I ran into the [floating point error problem](https://en.wikipedia.org/wiki/Floating_point_error_mitigation) which reduces the accuracy of our cubed-root calculation. I found a cubed root calculator that handles large values as input online at [https://www.dcode.fr/cube-root](https://www.dcode.fr/cube-root).
 
 The calculator gave the following value: `13016382529449106065839070830454998857466392684017754632233906857023684751222397`
 
@@ -33,9 +33,7 @@ I was stuck here for a while. A hint on the picoctf forums on Piazza mentioned t
 >>>a
 '0x7069636f4354467b655f7734795f7430305f736d3431315f38316236353539667dL'
 ```
-I then went to [cyberchef](https://gchq.github.io/CyberChef/), entered the value, minus the trailing L (for type=long in python) in the input pane. I chose from hex with a delimiter of `0x`
-
-and was given the flag:
+Note the trailing `L`. Prior to python3 this denotes the value as a [long integer literal](https://stackoverflow.com/questions/11764713/why-do-integers-in-database-row-tuple-have-an-l-suffix). I then went to [cyberchef](https://gchq.github.io/CyberChef/), entered the value minus the trailing L (again, for type=long in python) in the input pane. I chose from hex with a delimiter of `0x` and was given the flag:
 
 `picoCTF{e_w4y_t00_sm411_81b6559f}`
 
