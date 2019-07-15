@@ -1,4 +1,4 @@
-# RSA problem solves for picoctf2018
+# RSA problem solves for picoCTF 2018
 
 Here are my walkthroughs of three RSA problems from [picoctf2018](https://picoctf.com/).
 
