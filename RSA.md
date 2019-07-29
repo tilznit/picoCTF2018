@@ -36,7 +36,7 @@ m = hex(130163825294491060658390708304549988574663926840177546322339068570236847
 ```
 Note the trailing `L` in the returned hex value. Prior to python3 this denotes the value as a [long integer literal](https://stackoverflow.com/questions/11764713/why-do-integers-in-database-row-tuple-have-an-l-suffix). I then went to [cyberchef](https://gchq.github.io/CyberChef/), entered the value minus the trailing L (again, for `type(m)=long` in python) in the input pane. I chose the "from hex" operation with a delimiter of `0x` and was given the flag in the output pane:
 
-`picoCTF{e_w4y_t00_sm411_81b6559f}`
+`picoCTF{e_w4y_t00_sm411_(redacted)}`
 
 ## Supersafe RSA:
 
@@ -86,7 +86,7 @@ m = hex(pow(c, d, n)).rstrip("L")
 
 I again went to [cyberchef](https://gchq.github.io/CyberChef/), entered the value of `m` in the input pane. I chose the "from hex" operation with a delimiter of `0x` and was given the flag in the output pane:
 
-`picoCTF{us3_l@rg3r_pr1m3$_1599}`
+`picoCTF{us3_l@rg3r_pr1m3$_(redacted)}`
 
 ## Supersafe RSA 2
 
@@ -120,4 +120,4 @@ m = hex(pow(c, d, n)).rstrip("L")
 
 I again went to [cyberchef](https://gchq.github.io/CyberChef/), entered the value of `m` in the input pane. I chose the "from hex" operation with a delimiter of `0x` and was given the flag in the output pane:
 
-`picoCTF{w@tch_y0ur_Xp0n3nt$_c@r3fu11y_5689652}`
+`picoCTF{w@tch_y0ur_Xp0n3nt$_c@r3fu11y_(redacted)}`
